@@ -1,6 +1,6 @@
 public class ParameterMap {
-    private final int X;
-    private final int Y;
+    private int X;
+    private int Y;
 
     public ParameterMap(int x, int y) {
         X = x;
@@ -14,4 +14,5 @@ public class ParameterMap {
     public int getY() {
         return Y;
     }
+
 }

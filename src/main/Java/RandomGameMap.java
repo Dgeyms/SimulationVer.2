@@ -2,10 +2,14 @@ import entity.Coordinates;
 import java.util.HashMap;
 
 public class RandomGameMap {
-    private InitParametersEntity initParametersEntity;
-    private ParameterMap parameterMap;
-    Coordinates coordinates;
+    private final ParameterMap parameterMap;
+
+    public RandomGameMap(ParameterMap parameterMap) {
+        this.parameterMap = parameterMap;
+    }
+
     HashMap<Coordinates, String> mapStartPositionsEntity = new HashMap<>();
+
 
     public Coordinates randomCoordinates(){
         int X = (int) (Math.random() * parameterMap.getX());
@@ -23,6 +27,9 @@ public class RandomGameMap {
     }
     private boolean isOutOfBounds(Coordinates coordinates) {
         return coordinates.getX() >= parameterMap.getX() || coordinates.getY() >= parameterMap.getY();
+    }
+    public void sizeMapStartPositions(){
+        System.out.println("Число объектов: " + mapStartPositionsEntity.size());
     }
 
     // закончил тут

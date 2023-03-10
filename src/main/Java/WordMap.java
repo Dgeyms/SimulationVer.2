@@ -18,6 +18,6 @@ public class WordMap {
  // Стартовая позиция объектов
     public void startPositionsEntity(InitParametersEntity initParametersEntity){
 
-        }
+
     }
 }
