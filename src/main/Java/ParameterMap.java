@@ -1,3 +1,6 @@
+/*
+* Размеры игрового поля
+ */
 public class ParameterMap {
     private int X;
     private int Y;

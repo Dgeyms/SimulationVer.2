@@ -2,11 +2,12 @@ import entity.Coordinates;
 import java.util.HashMap;
 
 public class RandomGameMap {
-    private final ParameterMap parameterMap;
+    private ParameterMap parameterMap;
 
     public RandomGameMap(ParameterMap parameterMap) {
         this.parameterMap = parameterMap;
     }
+
 
     HashMap<Coordinates, String> mapStartPositionsEntity = new HashMap<>();
 
@@ -32,6 +33,4 @@ public class RandomGameMap {
         System.out.println("Число объектов: " + mapStartPositionsEntity.size());
     }
 
-    // закончил тут
-    // переделать для всех объектов
 }
