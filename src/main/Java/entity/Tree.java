@@ -2,6 +2,6 @@ package entity;
 
 public class Tree extends Entity {
     public Tree() {
-        super("P");
+        super("\uD83C\uDF32");
     }
 }

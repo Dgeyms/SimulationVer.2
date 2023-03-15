@@ -1,17 +1,13 @@
 package entity;
 
-import entity.Creature;
-
 public class Predator extends Creature {
+
     public Predator() {
-        super();
+        super("\uD83D\uDC2F");
     }
-
-    public Predator(Coordinates randomCoordinates, String p) {
-    }
-
     @Override
     void makeMove() {
 
     }
+
 }

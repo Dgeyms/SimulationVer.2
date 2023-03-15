@@ -7,6 +7,8 @@ public class RandomGameMap {
     public RandomGameMap(ParameterMap parameterMap) {
         this.parameterMap = parameterMap;
     }
+    public RandomGameMap(){
+    }
 
 
     HashMap<Coordinates, String> mapStartPositionsEntity = new HashMap<>();

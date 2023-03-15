@@ -13,14 +13,16 @@ public class Main {
         initParametersEntity.setRockCount(5);
         initParametersEntity.setTreeCount(8);
 
-        Simulation simulation = new Simulation(initParametersEntity, parameterMap);
+        PlacementObjects placementObjects = new PlacementObjects(initParametersEntity, parameterMap);
         System.out.println("------Start simulation------");
-        simulation.startSimulation(initParametersEntity);
+        placementObjects.placementOfObjects(initParametersEntity);
+
+        ActionObjects actionObjects = new ActionObjects();
+        actionObjects.startSimulation();
+
         System.out.println("------End simulation------");
 
+
     }
-    // План
-    // Расставить объекты на карте
-    //     Сгенерировать координаты объектов
-    //     Я застрял на том что надо добавить сгенерированные объекты в HashMap
+
 }

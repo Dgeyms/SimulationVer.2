@@ -2,19 +2,13 @@ package entity;
 
 public abstract class Entity {
     public Coordinates coordinates;
-    private String name;
+    final private String name;
 
-    public Entity(String p) {
-        this.coordinates = coordinates;
+    public Entity(String name) {
         this.name = name;
     }
 
-    public Entity(Coordinates coordinates, String name) {
-        this.coordinates = coordinates;
-        this.name = name;
-    }
-
-    public String getName(String litter) {
+    public String getName() {
         return name;
     }
 }
