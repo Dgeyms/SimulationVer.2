@@ -1,19 +1,20 @@
+package map;
+import parametrs.ParameterMap;
 import entity.Coordinates;
 import java.util.HashMap;
 
 public class RandomGameMap {
-    private ParameterMap parameterMap;
+    private final ParameterMap parameterMap;
+
+    private HashMap<Coordinates, String> randomGameMap = new HashMap<>();
+
+    public HashMap<Coordinates, String> getRandomGameMap() {
+        return randomGameMap;
+    }
 
     public RandomGameMap(ParameterMap parameterMap) {
         this.parameterMap = parameterMap;
     }
-    public RandomGameMap(){
-    }
-
-
-    HashMap<Coordinates, String> mapStartPositionsEntity = new HashMap<>();
-
-
     public Coordinates randomCoordinates(){
         int X = (int) (Math.random() * parameterMap.getX());
         int Y = (int) (Math.random() * parameterMap.getY());
@@ -24,15 +25,15 @@ public class RandomGameMap {
             Coordinates coordinatesObject;
             do {
                 coordinatesObject = randomCoordinates();
-            } while (mapStartPositionsEntity.containsKey(coordinatesObject) || isOutOfBounds(coordinatesObject));
-            mapStartPositionsEntity.put(coordinatesObject, name);
+            } while (randomGameMap.containsKey(coordinatesObject) || isOutOfBounds(coordinatesObject));
+            randomGameMap.put(coordinatesObject, name);
         }
     }
     private boolean isOutOfBounds(Coordinates coordinates) {
         return coordinates.getX() >= parameterMap.getX() || coordinates.getY() >= parameterMap.getY();
     }
     public void sizeMapStartPositions(){
-        System.out.println("Число объектов: " + mapStartPositionsEntity.size());
+        System.out.println("Число объектов: " +randomGameMap.size());
     }
 
 }

@@ -1,3 +1,5 @@
+package parametrs;
+
 public class InitParametersEntity {
     private int predatorCount;
     private int herbivoreCount;

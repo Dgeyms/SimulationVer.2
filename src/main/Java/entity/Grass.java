@@ -2,7 +2,8 @@ package entity;
 
 public class Grass extends Entity {
     public Grass() {
-        super("\uD83C\uDF32");
+        super("\uD83C\uDF31");
+
     }
 
 }
