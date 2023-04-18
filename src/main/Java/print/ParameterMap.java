@@ -1,4 +1,4 @@
-package parametrs;
+package print;
 
 /*
 * Размеры игрового поля

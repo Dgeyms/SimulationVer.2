@@ -1,7 +1,6 @@
 import entity.Coordinates;
 import map.RandomGameMap;
-import map.WordMap;
-import parametrs.ParameterMap;
+import print.ParameterMap;
 
 public class PrintGameMap {
     private final ParameterMap parameterMap;

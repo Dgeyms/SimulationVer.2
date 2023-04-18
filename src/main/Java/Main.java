@@ -1,6 +1,8 @@
 import actions.ActionObjects;
+import map.RandomGameMap;
+import map.WordMap;
 import parametrs.InitParametersEntity;
-import parametrs.ParameterMap;
+import print.ParameterMap;
 
 /*
  * Главный класс приложения
@@ -19,12 +21,18 @@ public class Main {
 
         PlacementObjects placementObjects = new PlacementObjects(initParametersEntity, parameterMap);
         System.out.println("------Start simulation------");
-        placementObjects.placementOfObjects(initParametersEntity); // генерация игрового мира
+        RandomGameMap randomGameMap = placementObjects.placementOfObjects(); // генерация игрового мира
 
+        randomGameMap.sizeMapStartPositions(); // число объектов в игре
 
-        ActionObjects actionObjects = new ActionObjects();
+        // Распечатка игрового поля с сгенерированными объектами
+        PrintGameMap printGameMap = new PrintGameMap(parameterMap, randomGameMap);
+        printGameMap.startPrintGameMap();
+
+        // Активные действия игрового мира
+        WordMap wordMap = new WordMap(randomGameMap);
+        ActionObjects actionObjects = new ActionObjects(wordMap);
         actionObjects.startSimulation();
-
 
         System.out.println("------End simulation------");
 

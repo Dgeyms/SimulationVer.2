@@ -1,12 +1,14 @@
 package map;
-import parametrs.ParameterMap;
+
+import print.ParameterMap;
 import entity.Coordinates;
+
 import java.util.HashMap;
 
 public class RandomGameMap {
-    private final ParameterMap parameterMap;
+    private ParameterMap parameterMap;
 
-    private HashMap<Coordinates, String> randomGameMap = new HashMap<>();
+    private final HashMap<Coordinates, String> randomGameMap = new HashMap<>();
 
     public HashMap<Coordinates, String> getRandomGameMap() {
         return randomGameMap;
@@ -15,11 +17,16 @@ public class RandomGameMap {
     public RandomGameMap(ParameterMap parameterMap) {
         this.parameterMap = parameterMap;
     }
-    public Coordinates randomCoordinates(){
+
+    public RandomGameMap() {
+    }
+
+    public Coordinates randomCoordinates() {
         int X = (int) (Math.random() * parameterMap.getX());
         int Y = (int) (Math.random() * parameterMap.getY());
         return (new Coordinates(X, Y));
     }
+
     public void generateCoordinatesObject(int x, String name) {
         for (int i = 0; i < x; i++) {
             Coordinates coordinatesObject;
@@ -29,11 +36,12 @@ public class RandomGameMap {
             randomGameMap.put(coordinatesObject, name);
         }
     }
+
     private boolean isOutOfBounds(Coordinates coordinates) {
         return coordinates.getX() >= parameterMap.getX() || coordinates.getY() >= parameterMap.getY();
     }
-    public void sizeMapStartPositions(){
-        System.out.println("Число объектов: " +randomGameMap.size());
-    }
 
+    public void sizeMapStartPositions() {
+        System.out.println("Сгенерированно объектов: " + randomGameMap.size());
+    }
 }

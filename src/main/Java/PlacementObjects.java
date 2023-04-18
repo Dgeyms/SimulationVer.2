@@ -1,12 +1,10 @@
-import actions.ActionObjects;
 import entity.*;
-import map.WordMap;
 import parametrs.InitParametersEntity;
-import parametrs.ParameterMap;
+import print.ParameterMap;
 import map.RandomGameMap;
 
 public class PlacementObjects {
-    private InitParametersEntity initParametersEntity;
+    private final InitParametersEntity initParametersEntity;
     private final ParameterMap parameterMap;
     private final Grass grass;
     private final Predator predator;
@@ -25,7 +23,7 @@ public class PlacementObjects {
         this.tree = new Tree();
     }
 
-    public void placementOfObjects(InitParametersEntity initParametersEntity){
+    public RandomGameMap placementOfObjects() {
         RandomGameMap randomGameMap = new RandomGameMap(parameterMap);
 
         randomGameMap.generateCoordinatesObject(initParametersEntity.getPredatorCount(), predator.getName());
@@ -34,10 +32,6 @@ public class PlacementObjects {
         randomGameMap.generateCoordinatesObject(initParametersEntity.getRockCount(), rock.getName());
         randomGameMap.generateCoordinatesObject(initParametersEntity.getTreeCount(), tree.getName());
 
-        randomGameMap.sizeMapStartPositions(); // число объектов в игре
-
-        // Распечатка игрового поля с сгенерированными объектами
-        PrintGameMap printGameMap = new PrintGameMap(parameterMap,  randomGameMap);
-        printGameMap.startPrintGameMap();
+        return randomGameMap;
     }
 }

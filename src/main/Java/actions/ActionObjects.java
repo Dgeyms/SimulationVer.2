@@ -7,32 +7,31 @@ import entity.Herbivore;
 import entity.Predator;
 import map.RandomGameMap;
 import map.WordMap;
-import parametrs.ParameterMap;
 
 import java.util.Set;
 
 /*
-* Активные действия игрового мира
+ * Активные действия игрового мира
  */
 public class ActionObjects {
+    private WordMap wordMap;
     Herbivore herbivore = new Herbivore();
     Predator predator = new Predator();
     Grass grass = new Grass();
     BFS bfs = new BFS();
-    WordMap wordMap = new WordMap();
 
-
+    public ActionObjects(WordMap wordMap) {
+        this.wordMap = wordMap;
+    }
 
     public ActionObjects() {
     }
 
-    public void startSimulation(){
+    public void startSimulation() {
+        wordMap.addRandomInMap();
+        wordMap.sizeMapWorld();
 
-        //System.out.println("Размер getObjectMap():" + randomGameMap.mapStartPositionsEntity.size());
-
-        System.out.println("Размер getObjectMap():" +  wordMap.getMapWorld().size());
-      //randomGameMap.sizeMapStartPositions();
-        int moveNumber = 1;
+      int moveNumber = 1;
 
         while (moveNumber < 10){
             System.out.println("Number of cycles:" + moveNumber);
@@ -47,12 +46,11 @@ public class ActionObjects {
             }
             moveNumber++;
         }
-
     }
 
     //-----------------private---------------
     // Определяем в каком направлении двигаться
-    private Coordinates calculateNewHerbivorePosition(Coordinates herbivoreCoords, Coordinates grassCoords){
+    private Coordinates calculateNewHerbivorePosition(Coordinates herbivoreCoords, Coordinates grassCoords) {
 
         int herbivoreX = herbivoreCoords.getX();
         int herbivoreY = herbivoreCoords.getY();
